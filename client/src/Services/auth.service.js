@@ -7,7 +7,7 @@ class AuthService {
             withCredentials: true
         })
     }
-    signup = (username, pwd) => this.instance.post("/signup", { username, pwd })
+    signup = (firstName, lastName, email, username, pwd, photo_profile,) => this.instance.post("/signup", { firstName, lastName, email, username, pwd, photo_profile })
     login = (username, pwd) => this.instance.post("/login", { username, pwd })
     logout = () => this.instance.get("/logout")
     isloggedin = () => this.instance.post("/isloggedin")

@@ -19,7 +19,7 @@ const userSchema = new Schema({
     type: String,
     enum: ['user', 'admin'],
     default: 'user',
-    required: true
+    // required: true
   },
   username: {
     type: String,
@@ -32,7 +32,7 @@ const userSchema = new Schema({
   },
   photo_profile: {
     type: String,
-    default: "https://res.cloudinary.com/dcdfzbe8n/image/upload/v1631559840/png-clipart-computer-icons-registered-user-login-user-profile-others-blue-logo_byluma.png"
+    default: "https://res.cloudinary.com/dcdfzbe8n/image/upload/v1631559840/png-clipart-computer-icons-registered-user-login-user-profile-others-blue-logo_byluma.png",
   },
   appointment: [{
     type: Schema.Types.ObjectId,

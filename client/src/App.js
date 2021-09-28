@@ -1,41 +1,39 @@
 import './App.css';
 import React, { Component } from 'react'
-import UserService from './Services/user.service'
 import Routes from './routes';
 import AuthService from './Services/auth.service'
-import Footer from './pages/layout/Footer/Footer'
+// import Footer from './pages/layout/Footer/Footer'
 import NavigationBar from './pages/layout/NavigationBar/NavigationBar'
 
 
-
-let userService = new UserService()
-
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = ({
-
-      loggerUser: undefined
-    })
+  constructor() {
+    super()
+    this.state = {
+      loggedUser: undefined
+    }
     this.authService = new AuthService()
   }
 
   componentDidMount() {
+    this.fetchUser()
+  }
 
-    console.log("hola")
-    userService.getUsers()
-      .then((user) => {
-        console.log(user)
-      })
-      .catch((error) => console.log(error))
+  storeUser = (user) => this.setState({ loggedUser: user })
+
+  fetchUser = () => {
+    this.authService
+      .isloggedin()
+      .then((res) => this.storeUser(res.data))
+      .catch(() => this.storeUser(null))
   }
 
   render() {
     return (
       <div>
-        {/* <NavigationBar /> */}
-        <Footer />
-        <h1>App</h1>
+        <NavigationBar loggedUser={this.state.loggedUser} storeUser={this.storeUser} />
+        <Routes loggedUser={this.state.loggedUser} storeUser={this.storeUser} />
+        {/* <Footer /> */}
       </div>
     )
   }

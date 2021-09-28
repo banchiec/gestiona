@@ -1,14 +1,14 @@
 import { Route, Switch } from "react-router"
-import UserRoutes from './UserRoutes/UserRoutes'
-import AppointmentRoutes from './AppointmentRoutes/AppointmentRoute'
-import AuthRoutes from "./AuthRoutes/AuthRoutes"
+import HomePage from "../pages/Home/Homepage"
+import Login from "../pages/Login/Login"
+import Signup from "../pages/Signup/Signup"
 
 const Routes = ({ storeUser, loggedUser }) => {
     return (
         <Switch>
-            <AuthRoutes storeUser={storeUser} />
-            <UserRoutes loggedUser={loggedUser} />
-            <AppointmentRoutes></AppointmentRoutes>
+            <Route exact path="/" render={() => <HomePage />} />
+            <Route exact path="/registro" render={(props) => <Signup {...props} />} />
+            <Route exact path="/iniciar-sesion" render={(props) => <Login storeUser={storeUser} {...props} />} />
         </Switch>
     )
 }
