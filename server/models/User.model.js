@@ -5,7 +5,6 @@ const userSchema = new Schema({
   firstName: {
     type: String,
     required: true
-
   },
   lastName: {
     type: String,
@@ -35,12 +34,9 @@ const userSchema = new Schema({
     type: String,
     default: "https://res.cloudinary.com/dcdfzbe8n/image/upload/v1631559840/png-clipart-computer-icons-registered-user-login-user-profile-others-blue-logo_byluma.png"
   },
-  photos: [{
-    type: String,
-  }],
-  works: [{
+  appointment: [{
     type: Schema.Types.ObjectId,
-    ref: 'Work'
+    ref: 'Appointment'
   }]
 }, { timestamps: true });
 

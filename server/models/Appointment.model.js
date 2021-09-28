@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const workSchema = new Schema({
+const appointmentSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -14,12 +14,21 @@ const workSchema = new Schema({
         unique: true,
         required: true
     },
+    date: {
+        type: Date,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
     photos: [{
         type: String,
+        required: true,
         default: "https://res.cloudinary.com/dcdfzbe8n/image/upload/v1631559840/png-clipart-computer-icons-registered-user-login-user-profile-others-blue-logo_byluma.png"
-    }]
+    }],
 }, { timestamps: true });
 
-const Work = model("Work", workSchema);
+const Appointment = model("Appointment", appointmentSchema);
 
-module.exports = Work;
+module.exports = Appointment;
