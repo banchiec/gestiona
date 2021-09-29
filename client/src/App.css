@@ -1,0 +1,7 @@
+.container-modal {
+    position: fixed;
+    top: 10px;
+    /* left: -500px; */
+    /* border: 1px solid green; */
+    padding: 4rem;
+}

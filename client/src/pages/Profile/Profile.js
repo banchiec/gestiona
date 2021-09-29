@@ -39,12 +39,10 @@ export default class Profile extends Component {
                                 <>
                                     <Card>
                                         <Card.Body>
-                                            <Card.Text>
-                                                {
-                                                    this.state.appointment &&
-                                                    <p>{this.state.appointment.title}</p>
-                                                }
-                                            </Card.Text>
+                                            {
+                                                this.state.appointment &&
+                                                <p>{this.state.appointment.title}</p>
+                                            }
                                         </Card.Body>
                                     </Card>
                                 </>
