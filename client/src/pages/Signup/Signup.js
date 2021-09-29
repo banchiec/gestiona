@@ -24,9 +24,9 @@ class Signup extends Component {
 
     handleFormSubmit = (e) => {
         e.preventDefault();
-        const { username, pwd, email, firstName, lastName, photo_profile } = this.state
+        const { firstName, lastName, email, username, pwd, photo_profile } = this.state
         console.log(this.state)
-        this.authService.signup(username, pwd, email, firstName, lastName, photo_profile)
+        this.authService.signup(firstName, lastName, email, username, pwd, photo_profile)
             .then(res => this.props.history.push("/"))
             .catch(err => console.log(err))
     }

@@ -33,6 +33,7 @@ const userSchema = new Schema({
   photo_profile: {
     type: String,
     default: "https://res.cloudinary.com/dcdfzbe8n/image/upload/v1631559840/png-clipart-computer-icons-registered-user-login-user-profile-others-blue-logo_byluma.png",
+    require: true
   },
   appointment: [{
     type: Schema.Types.ObjectId,

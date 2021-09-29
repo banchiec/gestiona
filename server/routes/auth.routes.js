@@ -12,10 +12,7 @@ router.get('/', (req, res) => {
 
 // Signup (post)
 router.post('/signup', (req, res) => {
-
-    const { username, pwd, firstName, lastName, email, photo_profile } = req.body
-    console.log(req.body)
-
+    const { firstName, lastName, email, username, pwd, photo_profile } = req.body
     User
         .findOne({ username })
         .then(user => {
@@ -28,7 +25,7 @@ router.post('/signup', (req, res) => {
             const salt = bcrypt.genSaltSync(bcryptSalt)
             const hashPass = bcrypt.hashSync(pwd, salt)
             User
-                .create({ username, password: hashPass, firstName, lastName, email, photo_profile })
+                .create({ firstName, lastName, email, username, password: hashPass, photo_profile })
                 .then(() => res.json({ code: 200, message: 'User created' }))
                 .catch(err => res.status(500).json({ code: 500, message: 'DB error while creating user', err: err.message }))
         })
@@ -40,9 +37,10 @@ router.post('/login', (req, res) => {
 
     const { username, pwd } = req.body
 
-    User
-        .findOne({ username })
+    User.findOne({ username })
         .then(user => {
+
+            console.log(user)
 
             if (!user) {
                 res.status(401).json({ code: 401, message: 'Username not registered' })
@@ -53,7 +51,6 @@ router.post('/login', (req, res) => {
                 res.status(401).json({ code: 401, message: 'Incorrect password' })
                 return
             }
-
             req.session.currentUser = user
             res.json(req.session.currentUser)
         })
