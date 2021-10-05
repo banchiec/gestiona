@@ -4,7 +4,15 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     Appointment.find()
-        .select('name phone description')
+        .select('name phone description date')
+        .then(appointments => res.status(200).json(appointments))
+        .catch(err => res.status(500).json({ code: 500, message: "Error retrieving appointment", err }))
+})
+
+router.get("/user/:id", (req, res) => {
+    const { id } = req.params
+    Appointment.find({ idUser: id })
+        .select('name phone description date')
         .then(appointments => res.status(200).json(appointments))
         .catch(err => res.status(500).json({ code: 500, message: "Error retrieving appointment", err }))
 })
@@ -18,8 +26,12 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
     const appointment = req.body;
+    console.log(req.body)
     Appointment.create(appointment)
-        .then(appointment => res.status(200).json({ appointment, message: "Appointment created" }))
+        .then(appointment => {
+            //User.update(id_dueño_calendario)
+            res.status(200).json({ appointment, message: "Appointment created" })
+        })
         .catch(err => res.status(500).json({ code: 500, message: "Error creating appointment", err }))
 })
 

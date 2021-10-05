@@ -8,9 +8,11 @@ class AppointmentService {
     }
 
     getAppointments = () => this.instance.get("/");
+    getUserAppointments = (id) => this.instance.get(`/user/${id}`);
     getOneApointment = (id) => this.instance.get(`/${id}`);
     getOneDeleteApointment = (id) => this.instance.delete(`/${id}`);
     createAppointment = (appointment) => this.instance.post("/", appointment);
+
 }
 
 export default AppointmentService;

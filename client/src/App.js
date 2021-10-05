@@ -26,6 +26,7 @@ export default class App extends Component {
       .isloggedin()
       .then((res) => this.storeUser(res.data))
       .catch(() => this.storeUser(null))
+    console.log(this.loggedUser)
   }
 
   render() {

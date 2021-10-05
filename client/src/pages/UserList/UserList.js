@@ -32,6 +32,7 @@ export default class UserList extends Component {
     render() {
         return (
             <div>
+                <h1>Usuarios</h1>
                 {
                     // <CardAnimation></CardAnimation>
                     console.log(this.state.users)

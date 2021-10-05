@@ -35,10 +35,10 @@ const userSchema = new Schema({
     default: "https://res.cloudinary.com/dcdfzbe8n/image/upload/v1631559840/png-clipart-computer-icons-registered-user-login-user-profile-others-blue-logo_byluma.png",
     require: true
   },
-  appointment: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Appointment'
-  }]
+  // appointment: [{
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Appointment'
+  // }]
 }, { timestamps: true });
 
 const User = model("User", userSchema);

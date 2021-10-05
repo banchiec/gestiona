@@ -10,6 +10,7 @@ class UserService {
     getUsers = () => this.instance.get("/");
     getOneUser = (id) => this.instance.get(`/${id}`);
     createUser = (user) => this.instance.post("/", user);
+    updateUser = (id, date) => this.instance.put(`/${id}`, date)
 }
 
 export default UserService;

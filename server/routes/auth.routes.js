@@ -38,6 +38,7 @@ router.post('/login', (req, res) => {
     const { username, pwd } = req.body
 
     User.findOne({ username })
+        // .populate("appointment")
         .then(user => {
 
             console.log(user)

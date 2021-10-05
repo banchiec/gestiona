@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import AuthService from '../../../Services/auth.service'
 
-import { isLoggin, isAdmin } from '../../../utils/auth.utils'
+import { isAdmin } from '../../../utils/auth.utils'
 
 const authService = new AuthService()
 

@@ -13,9 +13,12 @@ const Routes = ({ storeUser, loggedUser }) => {
             <Route exact path="/registro" render={(props) => <Signup {...props} />} />
             <Route exact path="/iniciar-sesion" render={(props) => <Login storeUser={storeUser} {...props} />} />
             <Route exact path="/editar" render={(props) => <EditUser storeUser={storeUser} {...props} />} />
-
-            <Route path="/perfil" render={() => loggedUser ? <Profile loggedUser={loggedUser} /> : <Redirect to="/iniciar-sesion" />} />
-            <Route exact path="/usuarios" render={(props) => <UserList {...props} loggedUser={loggedUser} />} />
+            {
+                loggedUser ?
+                    <Route path="/perfil" render={(props) => loggedUser ? <Profile {...props} loggedUser={loggedUser} /> : <Redirect to="/iniciar-sesion" />} /> :
+                    <Route path="/calendar/:id" render={(props) => <Profile {...props} loggedUser={loggedUser} />} />
+            }
+            <Route exact path="/usuarios" render={(props) => loggedUser && <UserList {...props} loggedUser={loggedUser} />} />
 
         </Switch>
     )

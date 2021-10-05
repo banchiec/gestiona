@@ -1,7 +1,80 @@
+/* colors  */
+/* hotpink */
+/* slateblue */
+
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* NAVBAR */
+.container-navbar {
+    border-bottom: .5px solid slateblue ;
+    /* margin-bottom: 2rem; */
+
+}
+/* ICONS*/
+.icon-profile:hover {
+    color: grey;
+
+}
+.icon-share {
+    font-size: 1.5rem;
+}
 .container-modal {
     position: fixed;
     top: 10px;
     /* left: -500px; */
     /* border: 1px solid green; */
     padding: 4rem;
+}
+
+.container-profile  .fc::-webkit-scrollbar{
+    /* display: none; */
+    /* border: 1px solid green; */
+    /* font-size: 16px; */
+}
+
+.fc-day{
+    color: white;
+    /* border-radius: 4px; */
+    background-color: slateblue!important;
+}
+.fc-day:hover {
+    background-color: red;
+}
+.fc-daygrid-day{
+    /* background-color: indianred; */
+}
+.fc-day-today{
+  background-color:hotpink!important;
+}
+.fc-day-today:hover{
+    background-color: indianred;
+}
+.fc-daygrid-day-frame{
+    border-radius: 4px;
+}
+.fc-scroller::-webkit-scrollbar{
+    /* display: none; */
+}
+.fc-daygrid-body tbody {
+    /* border-radius: 10px; */
+}
+.fc-daygrid-bg-harness {
+    background-color: slateblue;
+}
+.fc-non-business {
+    color: white;
+    /* background-color: aqua; */
+
+}
+.fc-scrollgrid-section {
+    margin-top: 4rem;
+    /* border: 1px solid green; */
+}
+.fc .fc-col-header-cell-cushion {
+  display: inline-block;
+  padding: 25px 4px;
 }
