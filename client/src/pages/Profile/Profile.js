@@ -5,17 +5,19 @@ import AppointmentService from '../../Services/appointment.service'
 import { isToday } from '../../utils/calendar.utils'
 import AppointmentCardHover from './AppointmentCardHover'
 import CardProfile from '../../components/CardProfile/CardProfile'
+import AccordionList from '../../components/Accordion/AccordionList'
 
 export default class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {
             weekendsVisible: true,
+            isShowAprovedAppointment: false,
             appointment: undefined,
             allAppointments: null,
             currentEvents: [],
             hidden: true,
-            isCopied: false
+            isCopied: false,
         }
     }
 
@@ -47,6 +49,7 @@ export default class Profile extends Component {
     putCard = (e) => {
         if (this.state.hidden) this.showCardModal(e)
     }
+
     setHidden = () => {
         if (!this.state.hidden) this.setState({ ...this.state, hidden: true })
     }
@@ -54,13 +57,23 @@ export default class Profile extends Component {
     loadEvents = () => {
         let event = []
         this.state.allAppointments?.map((appointment) => {
-            return event.push({ title: `${this.props.loggedUser ? appointment.name : "*****"}`, date: `${appointment.date}`, description: `${appointment.description}`, photos: `${appointment.photos}` })
+            return event.push({ title: `${this.props.loggedUser ? appointment.name : "*****"}`, date: `${appointment.date}`, description: `${appointment.description}`, photos: `${appointment.photos}`, startHour: appointment.startHour, endHour: appointment.endHour })
         })
         return event
     }
 
     okAppointment = () => {
+        this.setState({
+            ...this.state,
+            isShowAprovedAppointment: true
+        })
+
+        if (this.state.isShowAprovedAppointment) {
+            console.log("ok")
+        }
+        console.log(this.state.isShowAprovedAppointment)
     }
+
     render() {
         return (
             <Container className="mt-4">
@@ -70,18 +83,8 @@ export default class Profile extends Component {
                             <Row>
                                 <Col>
                                     <CardProfile loggedUser={this.props.loggedUser} />
-                                    {/* <h2>Bienvenido {this.props.loggedUser?.firstName}</h2> */}
-                                    {/* <h5>
-                                        Comparta su calendario.
-                                    </h5> */}
 
                                 </Col>
-                                {/* <Col md={2}>
-                                    {
-                                        console.log(this.state.isCopied)
-                                    }
-                                </Col> */}
-                                {/* es: http://localhost:3000/calendar/{this.props.loggedUser?._id} */}
                             </Row>
                         }
                         <Card className="container-card">
@@ -97,20 +100,7 @@ export default class Profile extends Component {
                                                     this.state.allAppointments.map((appointment) => {
                                                         return (isToday(appointment.date)) &&
                                                             <div key={appointment._id}>
-                                                                <Accordion.Item eventKey={appointment._id} >
-                                                                    <Accordion.Header>
-                                                                        <span>{appointment.name}</span>
-                                                                        <span className="p-2">
-                                                                            {appointment.phone}
-                                                                        </span>
-                                                                    </Accordion.Header>
-                                                                    <Accordion.Body>{appointment.description}
-                                                                        <>
-                                                                            <img src={appointment.photos} alt="fotos de las citas" />
-                                                                        </>
-                                                                    </Accordion.Body>
-                                                                </Accordion.Item>
-                                                                <Button onClick={this.okAppointment()}>Aproved ?</Button>
+                                                                <AccordionList appointment={appointment} okAppointment={this.okAppointment} />
                                                             </div>
                                                     }
                                                     )

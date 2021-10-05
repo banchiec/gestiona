@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     Appointment.find()
-        .select('name phone description date')
+        .select('name phone description date startHour endHour')
         .then(appointments => res.status(200).json(appointments))
         .catch(err => res.status(500).json({ code: 500, message: "Error retrieving appointment", err }))
 })
@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 router.get("/user/:id", (req, res) => {
     const { id } = req.params
     Appointment.find({ idUser: id })
-        .select('name phone description date')
+        .select('name phone description date startHour endHour isAproved')
         .then(appointments => res.status(200).json(appointments))
         .catch(err => res.status(500).json({ code: 500, message: "Error retrieving appointment", err }))
 })

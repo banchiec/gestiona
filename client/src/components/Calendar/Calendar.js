@@ -75,7 +75,6 @@ export default class Calendar extends Component {
 
 
     onSelect = (e) => {
-        console.log(e)
         this.setState({
             ...this.state,
             endDateLabel: `${e?.end.getHours()}: ${e?.end.getMinutes()}`,
@@ -85,23 +84,25 @@ export default class Calendar extends Component {
         const todayDate = new Date()
         todayDate.setHours(0, 0, 0, 0)
 
-        this.appointmentServices.getAppointments()
-            .then((res) => {
-                this.setState({
-                    ...this.state,
-                    appointments: res.data
-                })
-                // console.log(this.state.appointments)
-            })
-            .catch(error => console.log(error))
-        //FALTA IMPLEMENTAR LA FUNCIONALIDAD DE EVENTOS REPETIDOS
-        // console.log(this.state?.appointments)
-        // this.state.appointments.some((appointment) => { appointment.date > e.start })
+        const isSameTime = this.props.events.some((appointment) => {
+            const appoinmentStartTime = new Date(appointment.startHour).getTime()
+            const appoinmentEndTime = new Date(appointment.endHour).getTime()
+            const startTime = new Date(e.start).getTime()
+            const endTime = new Date(e.end).getTime()
+
+            return endTime > appoinmentStartTime && endTime < appoinmentEndTime ||
+                startTime > appoinmentStartTime && startTime < appoinmentEndTime ||
+                startTime < appoinmentStartTime && endTime > appoinmentEndTime
+
+        })
+        console.log(isSameTime, 'LECONSOLELOOOOOOOG')
+
         if (e.start.getTime() < todayDate.getTime()) {
             alert("No se puede realizar citas en fechas pasadas")
         } else {
             if (this.state.currentView === "timeGridDay") {
-                this.showModal(e)
+                if (isSameTime === false)
+                    this.showModal(e)
             }
             this.changeView(e)
         }
