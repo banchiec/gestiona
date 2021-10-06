@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Form, Button } from 'react-bootstrap'
 import AuthService from '../../Services/auth.service'
+import userLogin from '../../images/loginUser.png'
 
 class Login extends Component {
   constructor(props) {
@@ -31,23 +32,27 @@ class Login extends Component {
 
   render() {
     return (
-      <Container className=" d-flex justify-content-center align-items-center mt-4">
-        <Form onSubmit={this.handleFormSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Username</Form.Label>
-            <Form.Control name="username" value={this.state.username} onChange={this.handleInput} type="text" placeholder="Enter username" />
-          </Form.Group>
+      <>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control name="pwd" value={this.state.pwd} onChange={this.handleInput} type="password" placeholder="Password" />
-          </Form.Group>
+        <Container className=" container-login d-flex justify-content-center">
+          <Form onSubmit={this.handleFormSubmit}>
+            <img src={userLogin} />
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Username</Form.Label>
+              <Form.Control name="username" value={this.state.username} onChange={this.handleInput} type="text" placeholder="Enter username" />
+            </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Iniciar
-          </Button>
-        </Form>
-      </Container>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control name="pwd" value={this.state.pwd} onChange={this.handleInput} type="password" placeholder="Password" />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+              Iniciar
+            </Button>
+          </Form>
+        </Container>
+      </>
     )
   }
 }

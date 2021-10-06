@@ -9,5 +9,7 @@ class UploadsService {
     }
 
     uploadImg = (imageForm) => this.instance.post("/image", imageForm)
+    uploadImgProfile = (imageForm) => this.instance.post("/profile", imageForm)
+
 }
 export default UploadsService;

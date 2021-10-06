@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 // import CardAnimation from '../../components/CardAnimation/CardAnimation'
 import UserService from '../../Services/user.service'
+import UserItem from './UserItem'
+import { Container, Row } from 'react-bootstrap'
 
-export default class UserList extends Component {
+export default class Users extends Component {
     constructor() {
         super()
         this.state = {
@@ -22,22 +24,26 @@ export default class UserList extends Component {
 
                 this.setState({
                     ...this.state,
-                    users: users.data
+                    users: users?.data
                 })
 
             })
             .catch()
-        console.log(this.state.users)
+        console.log(this.state?.users)
     }
     render() {
         return (
-            <div>
-                <h1>Usuarios</h1>
-                {
-                    // <CardAnimation></CardAnimation>
-                    console.log(this.state.users)
-                }
-            </div>
+            <Container className="container-users mt-5">
+                <h1 className="display-5">Usuarios</h1>
+                <Row className="mt-5">
+                    {
+                        this.state.users?.map((user) => {
+                            { console.log(user) }
+                            return (<UserItem user={user} />)
+                        })
+                    }
+                </Row>
+            </Container>
         )
     }
 }

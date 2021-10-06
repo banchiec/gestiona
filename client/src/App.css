@@ -1,7 +1,12 @@
 /* colors  */
 /* hotpink */
 /* slateblue */
-
+body{
+    /* background: rgb(89,128,203); */
+    /* background: linear-gradient(90deg, rgba(89,128,203,1) 0%, rgba(130,179,233,0.5214460784313726) 97%); */
+    background-color: whitesmoke;
+/* background: linear-gradient(90deg, rgba(230,229,240,1) 0%, rgba(251,252,255,0.5214460784313726) 100%); */
+}
 *{
     border: 0;
     padding: 0;
@@ -10,10 +15,79 @@
 
 /* NAVBAR */
 .container-navbar {
-    border-bottom: .5px solid slateblue ;
+    border-bottom: .5px solid grey;
     /* margin-bottom: 2rem; */
-
 }
+.container-navbar img {
+    width: 180px;
+    height: 60px;
+}
+.container-navbar a:hover{
+    color: blue;
+
+    /* border: 1px solid green; */
+}
+/* SIGNUP */
+.container-signup {
+    margin-top: 2rem;
+    padding: 2rem;
+}
+.container-signup form {
+    border: 1px solid grey;
+    padding: 2rem ;
+    border-radius: 10px;
+    animation: expand .5s ease-in-out;
+}
+
+/* LOGIN */
+
+.container-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vw;
+}
+.container-login form {
+    /* width: 250px; */
+    animation: expand .5s ease-in-out;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 2rem;
+}
+@keyframes expand{
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+.container-login form img {
+    width: 180px;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+}
+/* CONTAINER ACCORDION */
+.container-card{
+    padding: 0;
+    border: none;
+}
+.container-accordion  {
+    /* border: 1px solid green; */
+}
+/* USERS */
+.container-users {
+    padding: 2rem;
+}
+.container-users img {
+    height: 280px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.container-userItem{
+    text-align: center;
+}
+
 /* ICONS*/
 .icon-profile:hover {
     color: grey;
@@ -50,8 +124,9 @@
 .fc-day-today{
   background-color:hotpink!important;
 }
-.fc-day-today:hover{
-    background-color: indianred;
+.fc-day:hover{
+    transform: scale(1.1);
+    /* background-color: indianred; */
 }
 .fc-daygrid-day-frame{
     border-radius: 4px;
@@ -77,4 +152,9 @@
 .fc .fc-col-header-cell-cushion {
   display: inline-block;
   padding: 25px 4px;
+}
+/* container profile */
+.container-profile {
+    margin-top: 2.5rem;
+    padding: 2rem;
 }

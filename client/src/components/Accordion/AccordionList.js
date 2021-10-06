@@ -20,7 +20,7 @@ export default function AccordionList(props) {
                     }
                 </>
             </Accordion.Body>
-            {!props.appointment.isAproved ? <Button key={props.appointment._id} onClick={props.okAppointment}>Aprobar?</Button> : 'aprobado'}
+            {!props.appointment.isAproved ? <Button accessKey={props.appointment._id} key={props.appointment._id} onClick={props.okAppointment}>Aprobar? </Button> : 'aprobado'}
         </Accordion.Item>
     )
 }

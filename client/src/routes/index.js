@@ -4,7 +4,7 @@ import HomePage from "../pages/Home/Homepage"
 import Login from "../pages/Login/Login"
 import Profile from "../pages/Profile/Profile"
 import Signup from "../pages/Signup/Signup"
-import UserList from "../pages/UserList/UserList"
+import Users from "../pages/User/Users"
 
 const Routes = ({ storeUser, loggedUser }) => {
     return (
@@ -18,7 +18,7 @@ const Routes = ({ storeUser, loggedUser }) => {
                     <Route path="/perfil" render={(props) => loggedUser ? <Profile {...props} loggedUser={loggedUser} /> : <Redirect to="/iniciar-sesion" />} /> :
                     <Route path="/calendar/:id" render={(props) => <Profile {...props} loggedUser={loggedUser} />} />
             }
-            <Route exact path="/usuarios" render={(props) => loggedUser && <UserList {...props} loggedUser={loggedUser} />} />
+            <Route exact path="/usuarios" render={(props) => loggedUser && <Users {...props} loggedUser={loggedUser} />} />
 
         </Switch>
     )

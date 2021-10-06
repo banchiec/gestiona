@@ -10,6 +10,8 @@ class AppointmentService {
     getAppointments = () => this.instance.get("/");
     getUserAppointments = (id) => this.instance.get(`/user/${id}`);
     getOneApointment = (id) => this.instance.get(`/${id}`);
+    // updateUser = (id, date) => this.instance.put(`/${id}`, date)
+    getUpdateApointment = (id, date) => this.instance.put(`/${id}`, date);
     getOneDeleteApointment = (id) => this.instance.delete(`/${id}`);
     createAppointment = (appointment) => this.instance.post("/", appointment);
 

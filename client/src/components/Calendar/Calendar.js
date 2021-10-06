@@ -50,6 +50,7 @@ export default class Calendar extends Component {
 
     componentDidMount = () => {
         this.currentUser()
+        this.props.updateAppointments()
     }
 
     changeView = (e) => {
@@ -72,8 +73,6 @@ export default class Calendar extends Component {
             })
     }
 
-
-
     onSelect = (e) => {
         this.setState({
             ...this.state,
@@ -95,7 +94,6 @@ export default class Calendar extends Component {
                 startTime < appoinmentStartTime && endTime > appoinmentEndTime
 
         })
-        console.log(isSameTime, 'LECONSOLELOOOOOOOG')
 
         if (e.start.getTime() < todayDate.getTime()) {
             alert("No se puede realizar citas en fechas pasadas")
@@ -118,6 +116,7 @@ export default class Calendar extends Component {
             endHour: e?.end
         })
     }
+
     handleFile = (e) => {
         this.setState({
             ...this.state,
@@ -161,9 +160,8 @@ export default class Calendar extends Component {
         this.appointmentServices.createAppointment(this.state)
             .then((res) => {
                 this.showModal(e);
-                // this.props.updateAppointment();
-                // this.userService.updateUser(this.props.loggedUser._id,)
                 console.log(this.props.idUser)
+                this.props.updateAppointments()
                 this.setState({
                     title: "",
                     description: "",
@@ -180,9 +178,6 @@ export default class Calendar extends Component {
             <>
                 <Row>
                     <Col>
-                        {
-                            // console.log(this.state.idUser)
-                        }
                         <FullCalendar
                             ref={this.calendarRef}
                             plugins={[
@@ -193,11 +188,10 @@ export default class Calendar extends Component {
                             ]}
 
                             headerToolbar={{
-                                left: 'prev,next today',
-                                // center: '',
+                                left: 'prev,next',
+                                center: 'title',
                                 right: 'dayGridMonth',
                             }}
-                            // eventStartEditable={true}
                             initialView='dayGridMonth'
                             themeSystem={'bootstrap'}
                             editable={true}
@@ -262,7 +256,7 @@ export default class Calendar extends Component {
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                                 {/* <Form.Label>Example textarea</Form.Label> */}
-                                <Form.Control onChange={(e) => this.handleFile(e)} type="file" name="photo" rows={3} placeholder="subir fotos" />
+                                <Form.Control onChange={(e) => this.handleFile(e)} type="file" name="photo" rows={3} placeholder="subir foto" />
                             </Form.Group>
                             <Button variant="primary" type="submit">
                                 Submit

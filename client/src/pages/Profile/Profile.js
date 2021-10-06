@@ -26,6 +26,8 @@ export default class Profile extends Component {
     componentDidMount() {
         this.updateAppointments()
     }
+
+
     updateAppointments = () => {
         this.appointmentService
             .getUserAppointments(this.props.loggedUser?._id || this.props.match.params.id)
@@ -62,31 +64,27 @@ export default class Profile extends Component {
         return event
     }
 
-    okAppointment = () => {
-        this.setState({
-            ...this.state,
-            isShowAprovedAppointment: true
-        })
-
-        if (this.state.isShowAprovedAppointment) {
-            console.log("ok")
-        }
-        console.log(this.state.isShowAprovedAppointment)
+    okAppointment = (props) => {
+        let id = props.target.accessKey
+        console.log(props.target.accessKey)
+        console.log(props)
+        this.appointmentService.getUpdateApointment(id, { isAproved: true })
+            .then(() => this.updateAppointments())
+            .catch(err => console.log(err))
     }
 
     render() {
         return (
-            <Container className="mt-4">
+            <Container className="container-profile">
                 <Row >
-                    <Col md={6}>
-                        {this.props.loggedUser &&
-                            <Row>
-                                <Col>
-                                    <CardProfile loggedUser={this.props.loggedUser} />
+                    <Col md={4}>
+                        <Row>
+                            <Col>
+                                <CardProfile loggedUser={this.props.loggedUser} idUserNotLogged={this.props.match.params.id} />
+                            </Col>
+                        </Row>
 
-                                </Col>
-                            </Row>
-                        }
+
                         <Card className="container-card">
                             {
                                 this.props.loggedUser &&
@@ -99,7 +97,7 @@ export default class Profile extends Component {
                                                 {
                                                     this.state.allAppointments.map((appointment) => {
                                                         return (isToday(appointment.date)) &&
-                                                            <div key={appointment._id}>
+                                                            <div className="container-accordion" key={appointment._id}>
                                                                 <AccordionList appointment={appointment} okAppointment={this.okAppointment} />
                                                             </div>
                                                     }
@@ -114,6 +112,7 @@ export default class Profile extends Component {
                         {!this.state.hidden &&
                             <AppointmentCardHover appointment={this.state.appointment} />}
                     </Col>
+                    <Col md={2}></Col>
                     <Col md={6}>
                         <Calendar
                             events={this.loadEvents()}
@@ -125,11 +124,6 @@ export default class Profile extends Component {
                             {...this.props}
                         />
                     </Col>
-                </Row>
-                <Row>
-                    {/* <Col>
-                        <h1>Cols</h1>
-                    </Col> */}
                 </Row>
             </Container>
         )

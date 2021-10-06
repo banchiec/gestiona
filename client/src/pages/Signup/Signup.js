@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Form, Button, Col, Row } from 'react-bootstrap'
 import AuthService from '../../Services/auth.service'
+import UploadsService from '../../Services/uploads.service'
 
 class Signup extends Component {
     constructor(props) {
@@ -15,7 +16,10 @@ class Signup extends Component {
             appointment: ""
         }
         this.authService = new AuthService()
+
     }
+
+    uploadServices = new UploadsService()
 
     handleInput = (e) => {
         const { name, value } = e.target
@@ -30,10 +34,31 @@ class Signup extends Component {
             .then(res => this.props.history.push("/"))
             .catch(err => console.log(err))
     }
+    handleFile = (e) => {
+        this.setState({
+            ...this.state,
+            isLoading: true
+        })
+
+        const uploadData = new FormData()
+        uploadData.append('photos', e.target.files[0])
+        console.log(e.target.files[0].name)
+        console.log(uploadData)
+        this.uploadServices.uploadImg(uploadData)
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    ...this.state,
+                    isLoading: false,
+                    photo_profile: res.data.cloudinary_url
+                })
+            })
+            .catch(error => alert("Error, esto no carga"))
+    }
 
     render() {
         return (
-            <Container className="mt-4">
+            <Container className=" container-signup ">
                 <Row>
                     <Col>
 
@@ -62,7 +87,7 @@ class Signup extends Component {
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formPhotoProfile">
                                 {/* <Form.Label>Password</Form.Label> */}
-                                <Form.Control name="photo_profile" value={this.state.photo_profile} onChange={this.handleInput} type="text" placeholder="Foto de perfil" />
+                                <Form.Control name="photo_profile" onChange={(e) => this.handleFile(e)} type="file" placeholder="Foto de perfil" />
                             </Form.Group>
 
                             <Button variant="primary" type="submit">
