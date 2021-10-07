@@ -31,10 +31,10 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 // 👇 Start handling routes here
 app.use("/api", require('./routes'))
 
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 
 // DEPLOY
-app.use((req, res) => res.sendFile(__dirname + "/public/index.html"));
 
 
 module.exports = app;
