@@ -20,10 +20,7 @@ const Routes = ({ storeUser, loggedUser }) => {
                     <Route path="/calendar/:id" render={(props) => <Profile {...props} loggedUser={loggedUser} />} />
             }
             <Route exact path="/usuarios" render={(props) => loggedUser && <Users {...props} loggedUser={loggedUser} />} />
-            <Route component={() => (
-                <NotFound />
-            )} />
-
+            <Route component={NotFound} />
         </Switch>
     )
 }
