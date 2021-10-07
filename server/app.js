@@ -9,6 +9,7 @@ require("./db");
 // https://www.npmjs.com/package/express
 const express = require("express");
 
+const path = require('path')
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 
@@ -20,6 +21,8 @@ require('./config/session.config')(app)
 require('./config/cors.config')(app)
 // require('./config/upload.config')(app)
 
+app.use(express.static(path.join(__dirname, "public")))
+
 // default value for title local
 const projectName = "web-gestiona";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
@@ -30,10 +33,8 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 app.use("/api", require('./routes'))
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-require("./error-handling")(app);
 
 // DEPLOY
-app.use(express.static(path.join(__dirname, "public")))
 app.use((req, res) => res.sendFile(__dirname + "/public/index.html"));
 
 
