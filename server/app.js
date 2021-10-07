@@ -29,6 +29,8 @@ const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowe
 app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
+
+app.get("/", (req, res) => res.sendFile(__dirname + "/public/index.html"))
 app.use("/api", require('./routes'))
 
 
