@@ -124,10 +124,6 @@ body{
 .fc-day-today{
   background-color:hotpink!important;
 }
-.fc-day:hover{
-    transform: scale(1.1);
-    /* background-color: indianred; */
-}
 .fc-daygrid-day-frame{
     border-radius: 4px;
 }
@@ -157,4 +153,32 @@ body{
 .container-profile {
     margin-top: 2.5rem;
     padding: 2rem;
+
+}
+
+/* FORM */
+
+
+.container-form {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid green;
+}
+/* MODAL */
+.container-modal .form {
+    width: 700px;
+}
+.container-modal .container{
+    background-color: white;
+    width: 122%;
+}
+.fc .fc-col-header-cell-cushion { /* needs to be same precedence */
+  padding-top: 50px; /* an override! */
+  padding-bottom: 5px; /* an override! */
+}
+.registerLottie {
+    border: 1px solid green;
+    margin-left: 3rem;
+    size: 100px;
+
 }

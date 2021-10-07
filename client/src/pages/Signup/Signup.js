@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Lottie from 'react-lottie'
+import registerAnimation from '../../animations/lf30_editor_zg6d8kio.json'
 import { Container, Form, Button, Col, Row } from 'react-bootstrap'
 import AuthService from '../../Services/auth.service'
 import UploadsService from '../../Services/uploads.service'
@@ -19,6 +21,13 @@ class Signup extends Component {
 
     }
 
+    defaultOptions = {
+        loop: true,
+        autoplay: true,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    }
     uploadServices = new UploadsService()
 
     handleInput = (e) => {
@@ -96,6 +105,10 @@ class Signup extends Component {
                         </Form>
                     </Col>
                     <Col>
+                        <Lottie
+                            className="registerLottie"
+                            options={{ animationData: registerAnimation, ...this.defaultOptions }}
+                        />
                     </Col>
                 </Row>
             </Container>

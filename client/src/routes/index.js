@@ -2,6 +2,7 @@ import { Redirect, Route, Switch } from "react-router"
 import EditUser from "../pages/EditUser/EditUser"
 import HomePage from "../pages/Home/Homepage"
 import Login from "../pages/Login/Login"
+import NotFound from "../pages/NotFound/NotFound"
 import Profile from "../pages/Profile/Profile"
 import Signup from "../pages/Signup/Signup"
 import Users from "../pages/User/Users"
@@ -19,6 +20,9 @@ const Routes = ({ storeUser, loggedUser }) => {
                     <Route path="/calendar/:id" render={(props) => <Profile {...props} loggedUser={loggedUser} />} />
             }
             <Route exact path="/usuarios" render={(props) => loggedUser && <Users {...props} loggedUser={loggedUser} />} />
+            <Route component={() => (
+                <NotFound />
+            )} />
 
         </Switch>
     )

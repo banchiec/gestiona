@@ -21,9 +21,6 @@ export default function CardProfile(props) {
 
     return (
         <div className="container-card">
-            {
-                console.log(userPublic)
-            }
             <img src={userPublic?.photo_profile} alt="foto perfil" />
             <div className="cont">
                 <h2>{userPublic?.firstName}</h2>
