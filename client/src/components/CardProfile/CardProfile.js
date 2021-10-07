@@ -30,7 +30,7 @@ export default function CardProfile(props) {
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <CopyToClipboard className="link"
-                        text={`http://localhost:3000/calendar/${userPublic?._id}`}>
+                        text={`${process.env.URLCALENDAR}/calendar/${userPublic?._id}`}>
                         <BsShareFill className="icon-profile" onClick={() => { this.setState({ ...this.state, isCopied: true }) }} />
                     </CopyToClipboard>
                 </div>
