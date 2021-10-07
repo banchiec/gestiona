@@ -22,6 +22,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.4",
     "bootstrap": "^5.1.1",
+    "crossenv": "0.0.2-security",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
     "react-copy-to-clipboard": "^5.0.4",
@@ -33,8 +34,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "REACT_APP_BASE_URL=http://localhost:5005/api react-scripts start",
-    "build": "REACT_APP_BASE_URL=https://gesffy.herokuapp.com/api react-scripts build",
+    "start": "crossenv REACT_APP_BASE_URL=http://localhost:5005/api react-scripts start",
+    "build": "crossenv REACT_APP_BASE_URL=https://gesffy.herokuapp.com/api react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
