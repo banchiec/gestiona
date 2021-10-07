@@ -34,8 +34,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "cross-env REACT_APP_BASE_URL=http://localhost:5005/api react-scripts start",
-    "build": "cross-env REACT_APP_BASE_URL=https://gesffy.herokuapp.com/api URLCALENDAR=https://gesffy.herokuapp.com react-scripts build",
+    "start": "cross-env REACT_APP_API_URL=http://localhost:5005/api react-scripts starPt",
+    "build": "cross-env REACT_APP_API_URL=https://gesffy.herokuapp.com/api URLCALENDAR=https://gesffy.herokuapp.com react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
