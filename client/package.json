@@ -34,8 +34,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "crossenv REACT_APP_BASE_URL=http://localhost:5005/api react-scripts start",
-    "build": "crossenv REACT_APP_BASE_URL=https://gesffy.herokuapp.com/api react-scripts build",
+    "start": "cross-env REACT_APP_BASE_URL=http://localhost:5005/api react-scripts start",
+    "build": "cross-env REACT_APP_BASE_URL=https://gesffy.herokuapp.com/api react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -56,8 +56,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
   }
 }
