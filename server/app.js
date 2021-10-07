@@ -21,7 +21,6 @@ require('./config/session.config')(app)
 require('./config/cors.config')(app)
 // require('./config/upload.config')(app)
 
-app.use(express.static(path.join(__dirname, "public")))
 
 // default value for title local
 const projectName = "web-gestiona";
