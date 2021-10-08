@@ -15,21 +15,19 @@ export default class Users extends Component {
 
     componentDidMount() {
         this.callUsers()
+        console.log(this.state?.users)
     }
 
     callUsers = () => {
         this.userService
             .getUsers()
             .then((users) => {
-
                 this.setState({
                     ...this.state,
                     users: users?.data
                 })
-
             })
             .catch()
-        console.log(this.state?.users)
     }
     render() {
         return (
@@ -38,7 +36,6 @@ export default class Users extends Component {
                 <Row className="mt-5">
                     {
                         this.state.users?.map((user) => {
-                            { console.log(user) }
                             return (<UserItem user={user} />)
                         })
                     }

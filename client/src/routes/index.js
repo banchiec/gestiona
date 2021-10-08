@@ -14,13 +14,19 @@ const Routes = ({ storeUser, loggedUser }) => {
             <Route exact path="/registro" render={(props) => <Signup {...props} />} />
             <Route exact path="/iniciar-sesion" render={(props) => <Login storeUser={storeUser} {...props} />} />
             <Route exact path="/editar" render={(props) => <EditUser storeUser={storeUser} {...props} />} />
+            <Route exact path="/calendar/:id" render={(props) => <Profile {...props} loggedUser={loggedUser} />} />
             {
-                loggedUser ?
-                    <Route path="/perfil" render={(props) => loggedUser ? <Profile {...props} loggedUser={loggedUser} /> : <Redirect to="/iniciar-sesion" />} /> :
-                    <Route path="/calendar/:id" render={(props) => <Profile {...props} loggedUser={loggedUser} />} />
+                loggedUser !== undefined && (loggedUser ? (
+                    <>
+                        <Route exact path="/usuarios" render={(props) => loggedUser && <Users {...props} loggedUser={loggedUser} />} />
+                        <Route exact path="/perfil" render={(props) => loggedUser && <Profile {...props} loggedUser={loggedUser} />} />
+
+                    </>)
+                    : (
+                        <Redirect to="/iniciar-sesion" />
+                    ))
             }
-            <Route exact path="/usuarios" render={(props) => loggedUser && <Users {...props} loggedUser={loggedUser} />} />
-            <Route component={NotFound} />
+            {/* <Route component={NotFound} /> */}
         </Switch>
     )
 }

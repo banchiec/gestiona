@@ -20,7 +20,7 @@ export default function NavigationBar(props) {
     return (
         <Navbar className="container-navbar" collapseOnSelect expand="lg" bg="transparent" variant="ligth">
             <Container>
-                <Navbar.Brand href='/' className="navbar-brand">
+                <Navbar.Brand as={Link} to='/' className="navbar-brand">
                     <img src={logoGestiona} alt="image logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -66,6 +66,5 @@ export default function NavigationBar(props) {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-
     )
 }

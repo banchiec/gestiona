@@ -77,7 +77,7 @@ export default class Profile extends Component {
         return (
             <Container className="container-profile">
                 <Row >
-                    <Col md={4}>
+                    <Col md={4} className="container-profile-information">
                         <Row>
                             <Col>
                                 <CardProfile loggedUser={this.props.loggedUser} idUserNotLogged={this.props.match.params.id} />

@@ -1,13 +1,33 @@
 import React from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
+import calendarImage from '../../animations/45666-valentine-day-gift-calendar.json'
+import Lottie from 'react-lottie'
+
 
 export default function HomePage({ loggedUser }) {
 
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    }
     return (
-        <div>
-            <h1>Home</h1>
-            {
-                // console.log(loggedUser)
-            }
-        </div>
+        <Container className="container-home" >
+            <Row className="container-banner">
+                <Col className="container-banner-text">
+                    <h1> ¿ Quienes somos ?</h1>
+                    <article>
+                        <p>
+                            Solución integral para la gestión de clientes en cualquier tipo de negocio. De esta forma, te permite trabajar directamente desde su aplicación web
+                        </p>
+                    </article>
+                </Col>
+                <Col>
+                    <Lottie options={{ animationData: calendarImage, ...defaultOptions }} />
+                </Col>
+            </Row>
+        </Container>
     )
 }

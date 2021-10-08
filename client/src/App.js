@@ -26,14 +26,16 @@ export default class App extends Component {
       .isloggedin()
       .then((res) => this.storeUser(res.data))
       .catch(() => this.storeUser(null))
-    console.log(this.loggedUser)
   }
 
   render() {
     return (
       <div>
         <NavigationBar loggedUser={this.state.loggedUser} storeUser={this.storeUser} />
+        {/* {console.log(this.state.loggedUser)} */}
+        {/* {this.state.loggedUser !== undefined && */}
         <Routes loggedUser={this.state.loggedUser} storeUser={this.storeUser} />
+        {/* } */}
         {/* <Footer /> */}
       </div>
     )
