@@ -3,6 +3,7 @@ import { Card, Col, Button } from 'react-bootstrap'
 
 export default function UserItem({ user }) {
     return (
+
         <Col className="container-userItem">
             <div>
                 {/* <Card style={{ width: '12rem' }}> */}
@@ -15,5 +16,6 @@ export default function UserItem({ user }) {
                 {/* </Card> */}
             </div>
         </Col>
+
     )
 }

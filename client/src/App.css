@@ -160,7 +160,7 @@ body{
 .container-form {
     display: flex;
     flex-direction: row;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 /* MODAL */
 .container-modal .form {

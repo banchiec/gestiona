@@ -77,7 +77,7 @@ export default class Profile extends Component {
         return (
             <Container className="container-profile">
                 <Row >
-                    <Col md={4} className="container-profile-information">
+                    <Col md={5} className="container-profile-information">
                         <Row>
                             <Col>
                                 <CardProfile loggedUser={this.props.loggedUser} idUserNotLogged={this.props.match.params.id} />
@@ -112,7 +112,7 @@ export default class Profile extends Component {
                         {!this.state.hidden &&
                             <AppointmentCardHover appointment={this.state.appointment} />}
                     </Col>
-                    <Col md={2}></Col>
+                    <Col md={1}></Col>
                     <Col md={6}>
                         <Calendar
                             events={this.loadEvents()}
