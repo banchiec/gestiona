@@ -21,18 +21,11 @@ require('./config/session.config')(app)
 require('./config/cors.config')(app)
 // require('./config/upload.config')(app)
 
-
-// default value for title local
-const projectName = "web-gestiona";
-const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
-
-app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
-
 // 👇 Start handling routes here
 
-app.get("/", (req, res) => res.sendFile(__dirname + "/public/index.html"))
 app.use("/api", require('./routes'))
 
+app.get("/", (req, res) => res.sendFile(__dirname + "/public/index.html"))
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 

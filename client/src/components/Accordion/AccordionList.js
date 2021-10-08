@@ -3,7 +3,6 @@ import { Accordion, Button } from 'react-bootstrap'
 
 
 export default function AccordionList(props) {
-    // const [] = use
     return (
         <Accordion.Item eventKey={props.appointment._id} >
             <Accordion.Header>
@@ -15,12 +14,10 @@ export default function AccordionList(props) {
             <Accordion.Body className="d-flex justify-content-around">
                 <>
                     {props.appointment.description}
-                    {
-                        /* <img src={appointment.photos} alt="fotos de las citas" /> */
-                    }
                 </>
             </Accordion.Body>
-            {!props.appointment.isAproved ? <Button accessKey={props.appointment._id} key={props.appointment._id} onClick={props.okAppointment}>Aprobar? </Button> : 'aprobado'}
+            {!props.appointment.isAproved ? <Button className="m-2" accessKey={props.appointment._id} key={props.appointment._id} onClick={props.okAppointment}>Aprobar? </Button> :
+                <p className="display-5">aprobado</p>}
         </Accordion.Item>
     )
 }

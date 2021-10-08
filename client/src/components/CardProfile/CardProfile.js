@@ -26,7 +26,7 @@ export default function CardProfile(props) {
             <div className="cont">
                 <h2>{userPublic?.firstName}</h2>
                 <p>{userPublic?.lastName}
-                    {isCopied && <h1>Copiado! ya puedes compartir tu enlace.</h1>}
+                    {isCopied && <h1>Copiado! Compártelo .</h1>}
                 </p>
                 <div className="link">
                     <a href="#"><i class="fab fa-facebook"></i></a>
