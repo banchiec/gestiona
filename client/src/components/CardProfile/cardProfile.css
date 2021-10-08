@@ -25,7 +25,7 @@
 
 .container-card .cont {
     /* color: black; */
-    height: 150px;
+    height: 140px;
     padding: 40px;
 }
 .container-card .cont i{
@@ -63,7 +63,7 @@
     justify-content: space-between;
     text-align: left;
     color: black;
-    height: 220px;
+    height: 250px;
 }
 
 .container-card:hover > .link{
