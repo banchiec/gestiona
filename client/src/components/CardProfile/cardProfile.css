@@ -5,7 +5,7 @@
 .container-card{
     display: flex;
     flex-direction: row;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     width: 100%;
     margin-bottom: 1.5rem;
     background-color: transparent; 
@@ -74,3 +74,8 @@
 .container-card link i {
     color: white;
 }
+
+
+
+
+

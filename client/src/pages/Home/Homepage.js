@@ -16,8 +16,8 @@ export default function HomePage({ loggedUser }) {
     return (
         <Container className="container-home" >
             <Row className="container-banner">
-                <Col xs={12} className="container-banner-text">
-                    <h1> ¿ Quienes somos ?</h1>
+                <Col xs={12} className="container-banner-text p-4">
+                    <h1>¿Quiénes somos?</h1>
                     <article>
                         <p>
                             Solución integral para la gestión de clientes en cualquier tipo de negocio. De esta forma, te permite trabajar directamente desde su aplicación web

@@ -26,7 +26,7 @@ const Routes = ({ storeUser, loggedUser }) => {
                         <Redirect to="/iniciar-sesion" />
                     ))
             }
-            {/* <Route component={NotFound} /> */}
+            <Route component={NotFound} />
         </Switch>
     )
 }

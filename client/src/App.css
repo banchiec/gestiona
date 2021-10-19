@@ -15,8 +15,7 @@ body{
 
 /* NAVBAR */
 .container-navbar {
-    /* border-bottom: .5px solid grey; */
-    /* margin-bottom: 2rem; */
+    padding: 10px;
 }
 .container-navbar img {
     width: 180px;
@@ -25,7 +24,6 @@ body{
 .container-navbar a:hover{
     color: blue;
 
-    /* border: 1px solid green; */
 }
 /* SIGNUP */
 .container-signup {
@@ -200,7 +198,7 @@ body{
 .container-profile-information {
     border-radius: 4px;
     padding: 2rem;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
 }
 
 .container-userItem img {
