@@ -18,7 +18,7 @@ export default function NavigationBar(props) {
     }
 
     return (
-        <Navbar className="container-navbar" collapseOnSelect expand="lg" bg="transparent" variant="ligth">
+        <Navbar className="container-navbar" collapseOnSelect expand="lg" bg="ligth">
             <Container>
                 <Navbar.Brand as={Link} to='/' className="navbar-brand">
                     <img src={logoGestiona} alt="image logo" />

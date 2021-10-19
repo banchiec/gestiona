@@ -5,6 +5,7 @@ import UserItem from './UserItem'
 import { Container, Row } from 'react-bootstrap'
 
 export default class Users extends Component {
+
     constructor() {
         super()
         this.state = {
