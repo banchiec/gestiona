@@ -42,14 +42,16 @@
     transition: all .5s ease;
 }
 
-.container-card .cont .link i{
+.link i{
+    margin: 2px;
     font-size: 16px;
     color: rgb(82, 82, 82);
     transition: all .3s ease;
+
 }
 
-.container-card .cont .link i:hover{
-    color: black;
+.link i:hover{
+    color: blue;
     cursor: pointer;
 }
 

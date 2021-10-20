@@ -41,12 +41,15 @@ body{
 
 .container-login{
     display: flex;
+    width: 60%;
+    margin-top: 3em ;
     justify-content: center;
     align-items: center;
-    height: 40vw;
+    /* height: 40vw; */
 }
 .container-login form {
-    /* width: 250px; */
+    /* width: 60%; */
+    height: 100%;
     animation: expand .5s ease-in-out;
     border: 1px solid grey;
     border-radius: 10px;

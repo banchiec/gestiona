@@ -16,7 +16,7 @@ export default function HomePage({ loggedUser }) {
     return (
         <Container className="container-home" >
             <Row className="container-banner">
-                <Col xs={12} className="container-banner-text p-4">
+                <Col xs={12} md={6} className="container-banner-text p-4">
                     <h1>¿Quiénes somos?</h1>
                     <article>
                         <p>

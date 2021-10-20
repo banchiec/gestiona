@@ -69,7 +69,7 @@ class Signup extends Component {
         return (
             <Container className=" container-signup ">
                 <Row>
-                    <Col>
+                    <Col md={6} xs={12}>
 
                         <Form onSubmit={this.handleFormSubmit}>
                             <h1 className="mb-4">Registrate</h1>
@@ -104,7 +104,7 @@ class Signup extends Component {
                             </Button>
                         </Form>
                     </Col>
-                    <Col>
+                    <Col md={6} xs={12}>
                         <Lottie
                             className="registerLottie"
                             options={{ animationData: registerAnimation, ...this.defaultOptions }}
